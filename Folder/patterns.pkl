@@ -1,4 +1,0 @@
-Ä]qcPattern
-Pattern
-q)Åq}q(Utotal_extrema_reqqKUnameqUHSqUsignal_valueqKUno_of_conditionq	KUtrading_daysq
-K&Uno_of_logicqKUlogicq]q(U(condition[0], 0)qU9([condition[1],condition[2],condition[3],condition[4]],1)qeU	toleranceqG?é∏QÎÖ∏U	conditionq]q(Udata[0] < data[1]qUdata[2] > data[0]qUdata[2] > data[4]qUBabs(data[0]-(data[0]+data[4])/2) < tolerance*((data[0]+data[4])/2)qUAabs(data[1]-(data[1]+data[3])/2) <tolerance*((data[1]+data[3])/2)qeuba.
