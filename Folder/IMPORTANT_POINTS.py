@@ -2,6 +2,9 @@ import pandas as pd
 import numpy as np
 
 import matplotlib.pyplot as plt
+#%matplotlib inline
+
+data = pd.read_csv('./SPY1.csv')
 
 
 def IMPORTANT_POINTS(a, R):
@@ -19,6 +22,7 @@ def IMPORTANT_POINTS(a, R):
         if i < n:                                              #    CHANGED   [ADDED 'if' CONDITION]
             temp2, i = FIND_MINIMUM(a, R, i)                   #
             minmax_list.append(temp2)
+    #print minmax_list
     return minmax_list
 
 
@@ -33,8 +37,12 @@ def FIND_FIRST_TWO(a, R):
             iMax = i
         i = i+1
     if iMin < iMax:
+        #print '({0},{1})'.format(a[iMin], iMin)
+        #print '({0},{1})'.format(a[iMax], iMax)
         return (a[iMin], iMin, 'Min'), (a[iMax], iMax, 'Max'), i
     else:
+        #print '({0},{1})'.format(a[iMax], iMax)
+        #print '({0},{1})'.format(a[iMin], iMin)
         return (a[iMax], iMax, 'Max'), (a[iMin], iMin, 'Min'), i
 
 
@@ -45,6 +53,7 @@ def FIND_MINIMUM(a, R, i):
         if a[i] < a[iMin]:
             iMin = i
         i = i+1
+    #print '({0},{1})'.format(a[iMin], iMin)
     return (a[iMin], iMin, 'Min'), i
 
 def FIND_MAXIMUM(a, R, i):
@@ -54,6 +63,9 @@ def FIND_MAXIMUM(a, R, i):
         if a[i] > a[iMax]:
             iMax = i
         i = i+1
+    #print '({0},{1})'.format(a[iMax], iMax)
     return (a[iMax], iMax, 'Max'), i
 
+
+#minmax_list = IMPORTANT_POINTS(data.Close, 1.15)
 

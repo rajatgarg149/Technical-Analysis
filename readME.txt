@@ -32,32 +32,66 @@ o/p : (a[iMax], iMax, 'Max'), i					//i = current index
 -> patterns :
 
 imports IMPORTANT_POINTS
-tolerance = .015						//tolerance set for HS and IHS
-tolerance1 = .0075						//tolerance1 set for RTOP and RBOT
+import Pattern							//Class defined in Pattern.py file
 
-i/p : Time Series(a), Compression Rate(R), l+d(trading_days)	//l+d = l is window length, d is a stretch to let the pattern complete
-o/p : pattern_list						//pattern_list = list of (pattern_type, [indices of 5 extrema creating pattern])
-
--> HS(a), IHS(a), BTOP(a), BBOT(a), TTOP(a), TBOT(a),		//functions taking set of 5 extrema within l+d days of interval as an i/p 
-   RTOP(a), RBOT(a), DTOP(a), DBOT(a)				//and o/p whether the particular pattern is possible
-
--> ltop_gt_hbot(a)						//i/p is a set of 5 extrema withing l+d trading days
-								//o/p is whether lowest top > highest bottom
+i/p : Time Series(a), Compression Rate(R), pattern(pattern)	//pattern is an object of Pattern class
+o/p : pattern_list						//pattern_list = list of (indices of 5(or total_extrema_req) extrema creating pattern)
 
 -> Plotting :
 
-i/p : DataFrame(a), Compression Rate(R), l+d(trading_days),	//function gives the plot for the mentioned pattern appearing in given time series type
-      pattern_type(pattern_type), series_type(OHLCV)		//within l+d trading days compressed using R
+i/p : DataFrame(a), Compression Rate(R), pattern(pattern),	//function gives the plot for the mentioned pattern appearing in given time series
+      series_type(OHLCV)					
 
 NOTE:
 
 -> reset_index is used bcoz spliced dataframe has earlier index which needs to be reset to starting index 0
 -> To get the ith plot for same pattern_type, change pattern_index[0][] to pattern_index[i][]
--> pattern_TYPE is list of pattern indices consitituting pattern of that TYPE
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
+=> Pattern.py
 
+Class Pattern
 
+Attributes:
+
+-> name
+-> total_extrema_req							//total extrema req to define a pattern
+-> trading_days								//l+d
+-> tolerance								// 0.0, if not any
+-> signal_value								//bullish or bearish
+-> no_of_condition
+-> no_of_logic
+-> condition								//conditions like: data[0] > data[2]
+-> logic								//logics like : ([condition[0],condition[1],condition[3]], 0)
+									//this implies if condition[0] and condition[1] and condition[3] are true
+									//then return false
+
+Functions:
+
+-> create_conditions
+-> create_logics
+-> pattern_recog
+-> get_name
+-> get_trading_days
+-> get_total_extrema_req
+-> display_pattern							//outputs all the information of that pattern
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+=> technical_analysis.py
+
+-> used cPickle to store patterns in file. load and save
+-> used eval() which takes the raw_input() and itself assigns a data type to the input		//Also used in pattern_recog {Pattern.py}
+   e.g., eval(raw_input(2)) --> 2 (int)
+	 eval(raw_input(condition[i])) --> condition[i] //outputs the value of condition[i] //if not defined gives error
+         eval(raw_input(HS))	       --> //gives error because HS is not defined
+ 	 eval(raw_input('HS'))	       --> 'HS' (string)
+
+-> also covered ast(abstract syntax tree) 			//only theory //not applied
+					  			//but eval() and ast() works in a similar way {read more}
+
+-> it finally outputs a plot showing the existence of that pattern in the data passed	//outputs nothing if there is no existence of such pattern
 
 
 
