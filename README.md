@@ -12,5 +12,5 @@ To get the deep understanding of the files, functions and attributes and key con
 
 Read the [description manual](https://github.com/rajatgarg149/Technical-Analysis/blob/master/Description%20Manual.pdf) clearly to understand the step-by-step procedure and task appropriate varying options.
 
-
+![](time_lapse.gif)
 
