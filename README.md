@@ -6,7 +6,7 @@ Charting is a very tedious job with searching same patterns repeatedly over diff
 
 Introducing a automated search system, limits the pattern search to a narrow path of predefined patterns. The evolution and advancement in pattern theory can make this whole project useless with time. Hence, the option to add and save new patterns results in more robust system.
 
-[data](https://github.com/rajatgarg149/Technical-Analysis/tree/master/Technical%20Analysis/data) - In case, user want to use different dataset, move the data to this folder.
+In case, user want to use different dataset, move the data to ``/Techinical Analysis/data `` folder
 
 To get the deep understanding of the files, functions and attributes and key concepts behind pattern search read this [document](https://github.com/rajatgarg149/Technical-Analysis/blob/master/Technical%20Indicator%5BBlog%5D.pdf)
 
