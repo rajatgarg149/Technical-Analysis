@@ -1,6 +1,6 @@
 # Automated Technical Indicator
 
-This project is built to automate the process of pattern search or charting and the visuals clearly marked with extrema over dataset plot. In this console based application, user can search for pre-built patterns in the given data or by using his own dataset. User also has an option to introduce new patterns and use them for further search.
+This project is built to automate the process of pattern search or charting and generating the visuals clearly marked with extrema over dataset plot. In this console based application, user can search for pre-built patterns in the given data or by using his own dataset. User also has an option to introduce new patterns and use them for further search.
 
 Charting is a very tedious job with searching same patterns repeatedly over different dataset or even different timestamp of same dataset. Automating this repetitive work reduces the pattern search processing time to just computational time (no doubt, very less!). Also, with the use of more descriptive visuals more information can be gained with the insights. 
 
